@@ -12,7 +12,7 @@ function noSearchDefaultPageRender() {
           <input 
             type="text" 
             class="url-input"
-            value="https://unduck.link?q=%s"
+            value="https://unduck.rosi.host?q=%s"
             readonly 
           />
           <button class="copy-button">
@@ -25,7 +25,9 @@ function noSearchDefaultPageRender() {
         •
         <a href="https://x.com/theo" target="_blank">theo</a>
         •
-        <a href="https://github.com/t3dotgg/unduck" target="_blank">github</a>
+        <a href="https://github.com/t3dotgg/unduck" target="_blank">original github</a>
+        •
+        <a href="https://github.com/rosidae/unduck" target="_blank">forked github</a>
       </footer>
     </div>
   `;
@@ -44,7 +46,7 @@ function noSearchDefaultPageRender() {
   });
 }
 
-const LS_DEFAULT_BANG = localStorage.getItem("default-bang") ?? "g";
+const LS_DEFAULT_BANG = localStorage.getItem("default-bang") ?? "ubgib";
 const defaultBang = bangs.find((b) => b.t === LS_DEFAULT_BANG);
 
 function getBangredirectUrl() {
