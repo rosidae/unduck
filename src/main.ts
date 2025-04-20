@@ -88,5 +88,5 @@ function doRedirect() {
   window.location.replace(searchUrl);
 }
 
-inject();
 doRedirect();
+inject();
