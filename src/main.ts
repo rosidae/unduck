@@ -1,3 +1,4 @@
+import { inject } from "@vercel/analytics";
 import { bangs } from "./bang";
 import "./global.css";
 
@@ -87,4 +88,5 @@ function doRedirect() {
   window.location.replace(searchUrl);
 }
 
+inject();
 doRedirect();
