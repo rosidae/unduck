@@ -20,6 +20,20 @@ function noSearchDefaultPageRender() {
             <img src="/clipboard.svg" alt="Copy" />
           </button>
         </div>
+        <div class="bang-config-container">
+          <label for="default-bang-input">Default Bang:</label>
+          <div class="bang-input-container">
+            <input 
+              type="text" 
+              id="default-bang-input"
+              class="bang-input"
+              value="${LS_DEFAULT_BANG}"
+              placeholder="Enter bang (e.g., ubgib, g, gh)"
+            />
+            <button class="set-bang-button">Set</button>
+          </div>
+          <div id="bang-feedback" class="bang-feedback"></div>
+        </div>
       </div>
       <footer class="footer">
         <a href="https://t3.chat" target="_blank">t3.chat</a>
@@ -44,6 +58,48 @@ function noSearchDefaultPageRender() {
     setTimeout(() => {
       copyIcon.src = "/clipboard.svg";
     }, 2000);
+  });
+
+  // Bang configuration functionality
+  const bangInput = app.querySelector<HTMLInputElement>("#default-bang-input")!;
+  const setBangButton = app.querySelector<HTMLButtonElement>(".set-bang-button")!;
+  const bangFeedback = app.querySelector<HTMLDivElement>("#bang-feedback")!;
+
+  function showFeedback(message: string, isError: boolean = false) {
+    bangFeedback.textContent = message;
+    bangFeedback.className = `bang-feedback ${isError ? 'error' : 'success'}`;
+    setTimeout(() => {
+      bangFeedback.textContent = "";
+      bangFeedback.className = "bang-feedback";
+    }, 3000);
+  }
+
+  setBangButton.addEventListener("click", () => {
+    const newBang = bangInput.value.trim().toLowerCase();
+    
+    if (!newBang) {
+      showFeedback("Please enter a bang", true);
+      return;
+    }
+
+    // Check if the bang exists in the bangs array
+    const bangExists = bangs.find((b) => b.t === newBang);
+    
+    if (!bangExists) {
+      showFeedback(`Bang "${newBang}" not found. Please check available bangs at duckduckgo.com/bang.html`, true);
+      return;
+    }
+
+    // Save to localStorage
+    localStorage.setItem("default-bang", newBang);
+    showFeedback(`Default bang set to "${newBang}" (${bangExists.s})`);
+  });
+
+  // Allow Enter key to trigger the button
+  bangInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      setBangButton.click();
+    }
   });
 }
 

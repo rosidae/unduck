@@ -150,6 +150,75 @@ textarea {
   color: #333;
 }
 
+/* Bang configuration styles */
+.bang-config-container {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.bang-config-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: left;
+}
+
+.bang-input-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bang-input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex: 1;
+  font-size: 14px;
+}
+
+.bang-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.set-bang-button {
+  padding: 8px 16px;
+  background: #007bff;
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.set-bang-button:hover {
+  background: #0056b3;
+}
+
+.set-bang-button:active {
+  background: #004085;
+  transform: translateY(1px);
+}
+
+.bang-feedback {
+  margin-top: 8px;
+  font-size: 14px;
+  min-height: 20px;
+  text-align: left;
+}
+
+.bang-feedback.success {
+  color: #28a745;
+}
+
+.bang-feedback.error {
+  color: #dc3545;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     color: #ddd;
@@ -192,5 +261,40 @@ textarea {
 
   .copy-button:active {
     background: #333;
+  }
+  
+  .bang-config-container {
+    border-top-color: #3d3d3d;
+  }
+  
+  .bang-input {
+    border-color: #3d3d3d;
+    background-color: #191919;
+    color: #fff;
+  }
+  
+  .bang-input:focus {
+    border-color: #0084ff;
+    box-shadow: 0 0 0 2px rgba(0, 132, 255, 0.2);
+  }
+  
+  .set-bang-button {
+    background: #0084ff;
+  }
+  
+  .set-bang-button:hover {
+    background: #0066cc;
+  }
+  
+  .set-bang-button:active {
+    background: #0056b3;
+  }
+  
+  .bang-feedback.success {
+    color: #40d865;
+  }
+  
+  .bang-feedback.error {
+    color: #ff6b6b;
   }
 }
