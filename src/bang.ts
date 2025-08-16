@@ -41228,6 +41228,15 @@ export const bangs = [
     t: "ubgib",
     u: "https://www.google.com/search?q={{{s}}}&udm=14&num=50",
   },
+	{
+    c: "Online Services",
+    d: "www.google.com",
+    r: 1942263,
+    s: "Google",
+    sc: "Google",
+    t: "gai",
+    u: "https://www.google.com/search?q={{{s}}}&udm=50",
+  },
   {
     c: "Online Services",
     d: "plus.google.com",
